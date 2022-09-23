@@ -1,3 +1,4 @@
+
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import ShoppingList from "../components/ShoppingList";
@@ -17,9 +18,9 @@ test("displays all items when initially rendered", () => {
   );
 });
 
-test("displays only items that match the selected category", () => {
+test("displays only items that match the selected category", () => { 
   const { container } = render(<ShoppingList items={testData} />);
-
+  
   fireEvent.change(screen.getByRole("combobox"), {
     target: { value: "Dairy" },
   });
@@ -29,6 +30,7 @@ test("displays only items that match the selected category", () => {
   fireEvent.change(screen.getByRole("combobox"), {
     target: { value: "Dessert" },
   });
-
-  expect(container.querySelector(".Items").children).toHaveLength(1);
+  
+  expect(container.querySelector(".Items").children).toHaveLength(1); 
+  
 });
